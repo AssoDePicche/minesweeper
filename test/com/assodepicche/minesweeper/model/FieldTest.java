@@ -9,18 +9,23 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.assodepicche.minesweeper.exception.ExplosionException;
+import com.assodepicche.minesweeper.model.contract.Fieldlike;
 
 public final class FieldTest {
-  private Field field;
+  private Fieldlike field;
 
   @BeforeEach
   public void build() {
     field = new Field(3, 3);
   }
 
+  private Fieldlike buildNeighbor(int row, int column) {
+    return new Field(row, column);
+  }
+
   @Test
   public void shouldAddNeighborInRangeOfOneField() {
-    Field neighbor = new Field(3, 2);
+    Fieldlike neighbor = buildNeighbor(3, 2);
 
     boolean result = field.addNeighbor(neighbor);
 
@@ -29,7 +34,7 @@ public final class FieldTest {
 
   @Test
   public void shouldAddNeighborInRangeOfTwoFields() {
-    Field neighbor = new Field(3, 4);
+    Fieldlike neighbor = buildNeighbor(3, 4);
 
     boolean result = field.addNeighbor(neighbor);
 
@@ -38,7 +43,7 @@ public final class FieldTest {
 
   @Test
   public void shouldNotAddNeighborOutOfRangeUpToTwoFields() {
-    Field neighbor = new Field(6, 6);
+    Fieldlike neighbor = buildNeighbor(6, 6);
 
     boolean result = field.addNeighbor(neighbor);
 
@@ -89,9 +94,9 @@ public final class FieldTest {
 
   @Test
   public void shouldOpenNeighbors() {
-    Field f1 = new Field(1, 1);
+    Fieldlike f1 = buildNeighbor(1, 1);
 
-    Field f2 = new Field(2, 2);
+    Fieldlike f2 = buildNeighbor(2, 2);
 
     f2.addNeighbor(f1);
 
