@@ -12,7 +12,6 @@ import com.assodepicche.minesweeper.model.contract.Fieldlike;
 import com.assodepicche.minesweeper.model.helper.FieldSearcher;
 import com.assodepicche.minesweeper.model.helper.FieldsLinker;
 import com.assodepicche.minesweeper.model.helper.MineScatterer;
-import com.assodepicche.minesweeper.view.helper.StringHelper;
 
 public final class Board implements Boardlike {
   private final int rows, columns, mines;
@@ -67,7 +66,11 @@ public final class Board implements Boardlike {
     builder.append(" ");
 
     for (int column = 0; column < columns; column++) {
-      builder.append(StringHelper.append(" ", column, " "));
+      builder.append(" ");
+
+      builder.append(column);
+
+      builder.append(" ");
     }
 
     builder.append("\n");
@@ -78,7 +81,11 @@ public final class Board implements Boardlike {
       builder.append(row);
 
       for (int column = 0; column < columns; column++) {
-        builder.append(StringHelper.append(" ", fields.get(field), " "));
+        builder.append(" ");
+
+        builder.append(fields.get(field));
+
+        builder.append(" ");
 
         field++;
       }
