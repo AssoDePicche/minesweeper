@@ -1,4 +1,4 @@
-# Minesweeper
+# Minesweeper (In Development)
 
 Minesweeper is a puzzle game. In the game, mines are scattered throughout a board, which is divided into cells. Cells have three states: unopened, opened and flagged. Flagged cells are unopened cells marked to indicate a potential mine location.
 
